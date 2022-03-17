@@ -18,7 +18,7 @@ public class InternationalizationConfig {
   /*
    * MessageFormat 에서 제공하는 JDK 표준 메시지 구문분석 기능과함께 ResourceBundle 구현을 기반으로하는
    * ResourceBundleMessageSource 를 빈으로 등록한다.
-   * <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/support/ResourceBundleMessageSource.html">ResourceBundleMessageSource</a>
+   * <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/support/ResourceBundleMessageSource.html"></a>
    */
   @Bean
   public MessageSource messageSource() {
