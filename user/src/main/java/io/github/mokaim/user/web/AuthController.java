@@ -1,7 +1,7 @@
 package io.github.mokaim.user.web;
 
 import io.github.mokaim.common.Response;
-import io.github.mokaim.user.service.AuthService;
+import io.github.mokaim.user.service.auth.AuthService;
 import java.util.Locale;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
