@@ -2,36 +2,37 @@ package io.github.mokaim.user.web;
 
 import io.github.mokaim.common.Response;
 import io.github.mokaim.user.service.auth.AuthService;
+import io.github.mokaim.user.service.auth.AuthServiceFactory;
 import java.util.Locale;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/api/v1/auth")
+@RequiredArgsConstructor
 public class AuthController {
 
-  @Autowired
-  private Response response;
-
-  @Autowired
-  private AuthService authService;
+  private final Response response;
+  private final AuthServiceFactory authServiceFactory;
 
 
 
-  @GetMapping("/test")
-  public ResponseEntity<?> getHello(Locale locale, @RequestParam(required = false) String test) {
-    System.out.println("test : " + test);
+  @Transactional
+  @PostMapping("/login")
+  public ResponseEntity<?> firstLogin(Locale locale) {
+    AuthService authService = authServiceFactory.createAuthService(null);
+
     //return response.success("test", new String[]{"firt","second","third"}, locale);
-    return response.success("test", locale);
+    return response.success("success",  locale);
   }
 
   @Transactional
-  @PostMapping("/test")
-  public ResponseEntity<?> postHello(Locale locale) {
+  @PostMapping("/login/{authType}")
+  public ResponseEntity<?> secondLogin(Locale locale) {
 
     //return response.success("test", new String[]{"firt","second","third"}, locale);
     return response.success("success",  locale);

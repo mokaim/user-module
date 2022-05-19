@@ -14,11 +14,11 @@ public class AuthServiceFactory {
   private final PinAuthService pinAuthService;
 
   public AuthService createAuthService(String authType) {
-    if ("PIN".equals(authType)) {
+    if ("pin".equals(authType)) {
       return pinAuthService;
-    } else if ("PHONE".equals(authType)) {
+    } else if ("phone".equals(authType)) {
       return phoneAuthService;
-    } else if ("OTP".equals(authType)) {
+    } else if ("otp".equals(authType)) {
       return otpAuthService;
     }
     return basicAuthService;
