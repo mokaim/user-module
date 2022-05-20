@@ -1,6 +1,5 @@
 package io.github.mokaim.user.service.auth;
 
-import io.github.mokaim.user.repo.auth.UsersRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -8,7 +7,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class AuthServiceFactory {
 
-  private final BasicAuthService basicAuthService;
+  private final DefaultAuthService defaultAuthService;
   private final OtpAuthService otpAuthService;
   private final PhoneAuthService phoneAuthService;
   private final PinAuthService pinAuthService;
@@ -21,7 +20,7 @@ public class AuthServiceFactory {
     } else if ("otp".equals(authType)) {
       return otpAuthService;
     }
-    return basicAuthService;
+    return defaultAuthService;
   }
 
 

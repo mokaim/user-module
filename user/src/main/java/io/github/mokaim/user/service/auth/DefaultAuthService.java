@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class BasicAuthService extends AuthService{
+public class DefaultAuthService extends AuthService{
 
   private final UsersRepository usersRepository;
 
@@ -15,9 +15,8 @@ public class BasicAuthService extends AuthService{
   }
 
   @Autowired
-  public BasicAuthService(UsersRepository usersRepository,
-      UsersRepository usersRepository1) {
+  public DefaultAuthService(UsersRepository usersRepository) {
     super(usersRepository);
-    this.usersRepository = usersRepository1;
+    this.usersRepository = usersRepository;
   }
 }
