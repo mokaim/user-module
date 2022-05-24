@@ -1,6 +1,7 @@
 package io.github.mokaim.user.vo;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -39,6 +40,19 @@ public class AuthVo {
   @AllArgsConstructor
   @NoArgsConstructor
   public static class SecondLoginParam {
+    private String authKey;
+  }
+
+
+  /*
+  첫번째 로그인 응답
+ */
+  @Getter
+  @Builder
+  @AllArgsConstructor
+  @NoArgsConstructor
+  public static class FirstLoginRes {
+    private String authType;
     private String authKey;
   }
 }

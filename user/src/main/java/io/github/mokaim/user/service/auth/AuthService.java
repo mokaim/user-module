@@ -9,9 +9,9 @@ import org.springframework.transaction.annotation.Transactional;
 public abstract class AuthService {
 
   private final UsersRepository usersRepository;
-  private final BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+  final BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 
-  public abstract String auth(String authKey);
+  public abstract Users auth(String authKey);
 
   @Transactional(readOnly = true)
   public Users auth(String username, String password) {

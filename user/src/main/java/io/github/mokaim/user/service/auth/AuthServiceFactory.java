@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class AuthServiceFactory {
 
-  private final DefaultAuthService defaultAuthService;
   private final OtpAuthService otpAuthService;
   private final PhoneAuthService phoneAuthService;
   private final PinAuthService pinAuthService;
@@ -20,7 +19,7 @@ public class AuthServiceFactory {
     } else if ("otp".equals(authType)) {
       return otpAuthService;
     }
-    return defaultAuthService;
+    return null;
   }
 
 
